@@ -1,0 +1,60 @@
+{% extends "wholesale/base.html" %}
+{% load wholesale %}
+
+{% block main %}
+<div class="masthead">
+    <img src="{{ STATIC_URL }}wholesale/img/logo.png" alt="Hungry Designs" />
+    <img src="{{ STATIC_URL }}wholesale/img/logo_wholesale.png" alt="Wholesale" />
+</div>
+{% snippet "index-top" %}
+<div class="row">
+    <div class="span4">
+        <div class="thumbnail">
+            <a href="{% url categories %}"><img src="{{ STATIC_URL }}wholesale/img/banners/categories.png" /></a>
+            <div class="caption">
+                <p>Browse each of our product categories. It's the perfect way to find a particular type of Hungry Designs product (e.g. Brooches / Cameos / Clocks).</p>
+                <a class="btn btn-large btn-block btn-warning" href="{% url categories %}">Browse Categories</a>
+            </div>
+        </div>
+    </div>
+    <div class="span4">
+        <div class="thumbnail">
+            <a href="{% url collections %}"><img src="{{ STATIC_URL }}wholesale/img/banners/collections.png" /></a>
+            <div class="caption">
+                <p>Hungry Designs has many recurring themes throughout the product range. You can find the collections that suit your store's unique style here.</p>
+                <a class="btn btn-large btn-block btn-warning" href="{% url collections %}">Browse Collections</a>
+            </div>
+        </div>
+    </div>
+    <div class="span4">
+        <div class="thumbnail">
+            <a href="{% url products %}"><img src="{{ STATIC_URL }}wholesale/img/banners/products.png" /></a>
+            <div class="caption">
+                <p>Have a look through the entire product range. This section is a great way to become acquainted with everything Hungry Designs has to offer.</p>
+                <a class="btn btn-large btn-block btn-warning" href="{% url products %}">Browse Products</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="span4 offset2">
+        <div class="thumbnail">
+            <a href="{% url shortlist %}"><img src="{{ STATIC_URL }}wholesale/img/banners/your_shortlist.png" /></a>
+            <div class="caption">
+                <p>As you browse through our products, you may add them to your own personal shortlist. Here you can view everything you've shortlisted.</p>
+                <a class="btn btn-large btn-block btn-warning" href="{% url shortlist %}">Your Shortlist</a>
+            </div>
+        </div>
+    </div>
+    <div class="span4">
+        <div class="thumbnail">
+            <a href="{% url contact %}"><img src="{{ STATIC_URL }}wholesale/img/banners/contact_us.png" /></a>
+            <div class="caption">
+                <p>Use the contact form on this page to register your interest in becoming a Hungry Designs stockist, or to ask any other questions.</p>
+                <a class="btn btn-large btn-block btn-warning" href="{% url contact %}">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% snippet "index-bottom" %}
+{% endblock main %}

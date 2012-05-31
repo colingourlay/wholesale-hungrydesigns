@@ -1,0 +1,33 @@
+{% extends "wholesale/base.html" %}
+{% load wholesale %}
+
+{% block main %}
+<div class="row" data-model="product" data-id="{{ product.id }}">
+    <div class="span4">
+        <div class="thumbnail">
+            <img src="{{ product.image|thumbnail:'300x300' }}" />
+        </div>
+    </div>
+    <div class="span8">
+        <div class="page-header">
+            <h1>{{ product.name }}</h1>
+        </div>
+        <h3>Wholesale Price: ${{ product.wholesale_price }}{% if product.retail_price %} <small>RRP&nbsp;${{ product.retail_price }}</small>{% endif %}</h3>
+        <div class="description">
+            {{ product.description|linebreaks }}
+        </div>
+        <p class="tags">
+            {% if product.categories %}
+            {% for category in product.categories.all %}
+            <a href="{{ category.get_absolute_url }}"><span class="label label-inverse">{{ category.name }}</span></a>
+            {% endfor %}
+            {% endif %}
+            {% if product.collections %}
+            {% for collection in product.collections.all %}
+            <a href="{{ collection.get_absolute_url }}"><span class="label label-warning">{{ collection.name }}</span></a>
+            {% endfor %}
+            {% endif %}
+        </p>
+    </div>
+</div>
+{% endblock main %}

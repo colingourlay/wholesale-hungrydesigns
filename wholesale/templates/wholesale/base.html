@@ -1,0 +1,60 @@
+{% load wholesale %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% if title or flatpage.title %}{% firstof title flat page.title %} | {% endif %}Hungry Designs Wholesale</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ title }}">
+    <meta name="author" content="Hungry Designs">
+    <link href="{{ STATIC_URL }}wholesale/bootstrap-alt/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}wholesale/css/wholesale.css" rel="stylesheet">
+    <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!--
+    <link rel="shortcut icon" href="{{ STATIC_URL }}wholesale/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ STATIC_URL }}wholesale/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ STATIC_URL }}wholesale/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ STATIC_URL }}wholesale/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="{{ STATIC_URL }}wholesale/ico/apple-touch-icon-57-precomposed.png">
+    -->
+  </head>
+  <body>
+    <header class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="{% url index %}">Wholesale</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="{% url categories %}">Categories</a></li>
+              <li><a href="{% url collections %}">Collections</a></li>
+              <li><a href="{% url products %}">Products</a></li>
+              <li><a href="{% url shortlist %}">Your Shortlist <span class="badge badge-important shortlist-count">0</span></a></li>
+              <li><a href="{% url contact %}">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="skin">
+      <div class="container" role="main">
+        {% block main %}{% endblock main %}
+      </div>
+      <footer class="container">
+        <div class="thumbnail">
+          <div class="caption">
+            {% snippet "sitewide-footer" %}
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="{{ STATIC_URL }}wholesale/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{ STATIC_URL }}wholesale/js/wholesale.js"></script>
+  </body>
+</html>

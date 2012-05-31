@@ -1,0 +1,15 @@
+{% extends "wholesale/base.html" %}
+
+{% block main %}
+<div class="page-header">
+    <h1>{{ collection.name }}</h1>
+</div>
+{% if products %}
+{% include "wholesale/includes/_products.html" %}
+{% if paginator.num_pages > 1 %}
+{% with products as page %}
+{% include "wholesale/includes/_paginator.html" %}
+{% endwith %}
+{% endif %}
+{% endif %}
+{% endblock main %}

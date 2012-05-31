@@ -1,0 +1,15 @@
+{% extends "wholesale/base.html" %}
+
+{% block main %}
+<div class="page-header">
+    <h1>Categories</h1>
+</div>
+{% if categories %}
+<div class="row">
+    {% for category in categories %}
+    {% include "wholesale/includes/_category.html" %}
+    {% cycle "" "" "" "</div><div class='row'>" %}
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock main %}

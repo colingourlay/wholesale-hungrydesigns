@@ -1,0 +1,10 @@
+{% extends "wholesale/base.html" %}
+{% load wholesale %}
+
+{% block main %}
+<h1>{{ flatpage.title }}</h1>
+<hr>
+{% snippet "flatpage-top" %}
+{{ flatpage.content }}
+{% snippet "flatpage-bottom" %}
+{% endblock main %}

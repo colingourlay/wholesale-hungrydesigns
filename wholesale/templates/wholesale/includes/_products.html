@@ -1,0 +1,6 @@
+<div class="row">
+    {% for product in products %}
+    {% include "wholesale/includes/_product.html" %}
+    {% cycle "" "" "" "</div><div class='row'>" %}
+    {% endfor %}
+</div>

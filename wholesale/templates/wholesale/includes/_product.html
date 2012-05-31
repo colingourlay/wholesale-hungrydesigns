@@ -1,0 +1,26 @@
+{% load wholesale %}
+
+<div class="span3">
+    <div class="thumbnail product" data-model="product" data-id="{{ product.id }}">
+        <a href="{{ product.get_absolute_url }}">
+            <img src="{{ product.image|thumbnail:'300x300' }}" />
+        </a>
+        <div class="caption">
+            <h2><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h2>
+            <h3>${{ product.wholesale_price }}{% if product.retail_price %} <small>RRP&nbsp;${{ product.retail_price }}</small>{% endif %}</h3>
+            <p class="description">{{ product.description|truncatewords:17 }}&nbsp;(<a href="{{ product.get_absolute_url }}">continued</a>)</p>
+            <p class="tags">
+                {% if product.categories %}
+                {% for category in product.categories.all %}
+                <a href="{{ category.get_absolute_url }}"><span class="label label-inverse">{{ category.name }}</span></a>
+                {% endfor %}
+                {% endif %}
+                {% if product.collections %}
+                {% for collection in product.collections.all %}
+                <a href="{{ collection.get_absolute_url }}"><span class="label label-warning">{{ collection.name }}</span></a>
+                {% endfor %}
+                {% endif %}
+            </p>
+        </div>
+    </div>
+</div>

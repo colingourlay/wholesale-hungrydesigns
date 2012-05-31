@@ -1,0 +1,15 @@
+{% extends "wholesale/base.html" %}
+
+{% block main %}
+<div class="page-header">
+    <h1>Collections</h1>
+</div>
+{% if collections %}
+<div class="row">
+    {% for collection in collections %}
+    {% include "wholesale/includes/_collection.html" %}
+    {% cycle "" "" "" "</div><div class='row'>" %}
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock main %}

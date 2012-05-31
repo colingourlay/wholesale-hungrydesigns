@@ -1,0 +1,10 @@
+{% extends "wholesale/base.html" %}
+{% load wholesale %}
+
+{% block main %}
+<h1>404 - Page Not Found</h1>
+<hr>
+{% snippet "404-top" %}
+<p>Sorry, the page you requested could not be found,</p>
+{% snippet "404-bottom" %}
+{% endblock main %}

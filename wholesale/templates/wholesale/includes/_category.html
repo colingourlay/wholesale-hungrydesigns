@@ -1,0 +1,33 @@
+{% load wholesale %}
+
+<div class="span3">
+    <div class="thumbnail">
+        <a href="{{ category.get_absolute_url }}">
+            <div class="img-grid">
+                {% for product in category.product_set.published|slice:":4" %}{% spaceless %}
+                {% if forloop.last and forloop.counter == 2 %}
+                <img src="{{ STATIC_URL }}wholesale/img/pixel.png" />
+                <img src="{{ STATIC_URL }}wholesale/img/pixel.png" />
+                {% endif %}
+                <img src="{{ product.image|thumbnail:'150x150' }}" />
+                {% if forloop.last and forloop.first %}
+                <img src="{{ STATIC_URL }}wholesale/img/pixel.png" />
+                <img src="{{ STATIC_URL }}wholesale/img/pixel.png" />
+                <img src="{{ STATIC_URL }}wholesale/img/pixel.png" />
+                {% endif %}
+                {% if forloop.last and forloop.counter == 3 %}
+                <img src="{{ STATIC_URL }}wholesale/img/pixel.png" />
+                {% endif %}
+                {% endspaceless %}{% empty %}{% spaceless %}
+                <img src="{{ STATIC_URL }}wholesale/img/pixel.png" />
+                <img src="{{ STATIC_URL }}wholesale/img/pixel.png" />
+                <img src="{{ STATIC_URL }}wholesale/img/pixel.png" />
+                <img src="{{ STATIC_URL }}wholesale/img/pixel.png" />
+                {% endspaceless %}{% endfor %}
+            </div>
+        </a>
+        <div class="caption">
+            <h2><a href="{{ category.get_absolute_url }}">{{ category.name }} <small>({{ category.product_set.published|length }})</small></a></h2>
+        </div>
+    </div>
+</div>

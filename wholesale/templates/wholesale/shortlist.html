@@ -1,0 +1,20 @@
+{% extends "wholesale/base.html" %}
+{% load wholesale %}
+
+{% block main %}
+<div class="page-header">
+    <h1>Your Shortlist</h1>
+</div>
+{% snippet "shortlist-top" %}
+<table class="table table-striped table-bordered table-shortlist">
+    <thead>
+        <tr>
+            <th>Product</th><th class="currency">Cost</th><th class="num">#</th><th class="currency">Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><th colspan="3">&nbsp;</th><th id="total" class="currency">0.00</th></tr>
+    </tbody>
+</table>
+{% snippet "shortlist-bottom" %}
+{% endblock main %}
